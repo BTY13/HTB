@@ -1,0 +1,16 @@
+1. Bilgi Toplama:
+
+Nmap taraması ile makinede açık olan portları ve servisleri belirledim.
+portta web sunucusu, 22. portta SSH sunucusu ve 135. portta Microsoft RPC hizmeti olduğunu gördüm.
+Web sunucusunda herhangi bir zafiyet bulamadım.
+2. Zafiyet Arama:
+
+Microsoft RPC hizmeti için CVE-2020-1472 zafiyetini araştırdım.
+Bu zafiyet, uzaktan kod çalıştırma izni veriyordu.
+3. İstismar:
+
+Zafiyeti istismar etmek için "rpcclient.py" isimli betiği kullandım.
+Betiği çalıştırdığımda, hedef makinede SYSTEM yetkisi ile bir kabuk elde ettim.
+4. Yükseltme:
+
+SYSTEM yetkisi ile "root.txt" dosyasını okuyabildim.

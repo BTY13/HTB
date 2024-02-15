@@ -1,0 +1,61 @@
+Kullanılan Araçlar:
+
+Nmap
+Gobuster
+Burp Suite
+Python
+Adımlar:
+
+1. Nmap ile Keşif:
+
+Nmap kullanarak makinenin açık portlarını ve servislerini taradım.
+
+nmap -A -T4 10.10.10.10
+Tarama sonucunda aşağıdaki portları ve servisleri keşfettim:
+
+22/tcp - SSH
+80/tcp - HTTP
+443/tcp - HTTPS
+2. Gobuster ile Dizin Tarama:
+
+Gobuster kullanarak web sunucusunda bulunan dizinleri ve dosyaları taradım.
+
+gobuster dir -u http://10.10.10.10 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+Tarama sonucunda aşağıdaki dizinleri keşfettim:
+
+/admin
+/uploads
+3. Burp Suite ile HTTP Trafiği Analizi:
+
+Burp Suite kullanarak web sunucusuna yapılan HTTP isteklerini ve yanıtlarını analiz ettim.
+
+4. /admin Dizininde Güvenlik Açığı:
+
+/admin dizininde bulunan bir sayfada SQL enjeksiyon zafiyeti olduğunu keşfettim.
+
+5. Python ile SQL Enjeksiyon Saldırısı:
+
+Python kullanarak SQL enjeksiyon saldırısı gerçekleştirdim ve veritabanından kullanıcı adı ve şifre bilgilerini ele geçirdim.
+
+6. SSH ile Erişim:
+
+Ele geçirdiğim kullanıcı adı ve şifre bilgilerini kullanarak SSH ile makineye erişim sağladım.
+
+7. Root Yetkisi Elde Etme:
+
+Makineye eriştikten sonra root yetkisi elde etmek için çeşitli yöntemler denedim. Sonunda, sudoers dosyasında bir konfigürasyon hatası bularak root yetkisi elde etmeyi başardım.
+
+Özet:
+
+Bu makineyi hacklemek için Nmap, Gobuster, Burp Suite ve Python gibi araçları kullandım. Keşif aşamasında açık portları ve servisleri belirledim. Gobuster ile web sunucusunda bulunan dizinleri ve dosyaları taradım. Burp Suite ile HTTP trafiğini analiz ederek SQL enjeksiyon zafiyeti keşfettim. Python kullanarak SQL enjeksiyon saldırısı gerçekleştirdim ve veritabanından kullanıcı adı ve şifre bilgilerini ele geçirdim. Ele geçirdiğim bilgilerle SSH ile makineye erişim sağladım ve sudoers dosyasında bir konfigürasyon hatası bularak root yetkisi elde etmeyi başardım.
+
+Edindiğim Bilgiler:
+
+Bu makineyi hackleme sürecinden aşağıdaki bilgileri edindim:
+
+Nmap kullanarak port tarama ve servis keşfi yapmayı öğrendim.
+Gobuster kullanarak dizin tarama yapmayı öğrendim.
+Burp Suite kullanarak HTTP trafiğini analiz etmeyi öğrendim.
+SQL enjeksiyon zafiyetlerini nasıl tespit edeceğimi ve nasıl saldıracağımı öğrendim.
+Python kullanarak basit otomasyonlar yapmayı öğrendim.
+Sudoers dosyası ve konfigürasyon hataları hakkında bilgi edindim.

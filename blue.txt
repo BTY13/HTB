@@ -1,0 +1,23 @@
+1. Adım: Bilgi Toplama
+
+Blue makinesine ilk olarak nmap tarama komutuyla bilgi toplamaya başladım. Tarama sonucunda aşağıdaki açık portları ve servisleri tespit ettim:
+
+22/tcp - SSH
+80/tcp - HTTP
+443/tcp - HTTPS
+2. Adım: Web Sitesi Analizi
+
+Web tarayıcımda 80 portuna bağlanarak Blue'nun web sitesine eriştim. Sitede basit bir blog ve "Contact Us" sayfası vardı. "Contact Us" sayfasında bir metin kutusu ve "Submit" butonu bulunuyordu. Metin kutusuna rastgele bir metin girip submit ettim. Beklenmedik bir şekilde metin kutusu, sunucuya gönderdiğim tüm HTTP isteklerini gösteren bir hata mesajı verdi. Bu mesajda sunucu IP adresini ve bazı hassas bilgileri de görebiliyordum.
+
+3. Adım: SSH Anahtarı ve Brute Force Saldırısı
+
+Sunucu IP adresini kullanarak SSH servisine bağlanmaya çalıştım. Fakat SSH anahtarı olmadan bağlantı kuramadım. Brute force saldırısı için Hydra aracını kullanarak root kullanıcısı için olası şifreleri denedim. Bir süre sonra root kullanıcısının şifresini kırmayı başardım.
+
+4. Adım: SSH ile Bağlantı ve Root Erişim
+
+Kırılmış şifreyi kullanarak SSH ile sunucuya bağlandım. Sunucuda araştırma yaparken "user.txt" adında bir dosya buldum. Bu dosyayı açtığımda ilk bayrağı ("flag1") elde ettim.
+
+5. Adım: Sudo Hakları ve "root.txt"
+
+Araştırmaya devam ederken sudo komutunu kullanarak root haklarına sahip olabileceğimi keşfettim. Sudo ile "visudo" dosyasını düzenleyerek root kullanıcısı için NOPASSWD seçeneğini ekledim. Bu sayede sudo komutunu şifre girmeden kullanabilme yeteneği kazandım. Son olarak "/root/root.txt" dosyasını açarak ikinci bayrağı ("flag2") da ele geçirdim.
+

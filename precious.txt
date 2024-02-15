@@ -1,0 +1,19 @@
+1. Adım: Bilgi Toplama
+
+Precious makinesine nmap taraması yaparak başladım. Tarama sonucunda 22, 80 ve 443 portlarının açık olduğunu gördüm. 80 numaralı porta HTTP isteği gönderdiğimde, basit bir web sitesi ile karşılaştım. 443 numaralı porta HTTPS isteği gönderdiğimde ise SSL/TLS sertifikası hatası aldım. 22 numaralı porta SSH bağlantısı denemek istedim, ancak bağlantı reddedildi.
+
+2. Adım: Zafiyet Tarama
+
+Web sitesinde herhangi bir bariz zafiyet bulamadım. Daha sonra, nikto ve gobuster gibi araçlar kullanarak web sitesini daha detaylı taradım. Bu tarama sonucunda, "/admin" adında bir dizin keşfettim. Bu dizine erişmeye çalıştığımda, kullanıcı adı ve parola istedi.
+
+3. Kullanıcı Adı ve Parola Bulma
+
+Web sitesinin kaynak kodunu inceledim ve herhangi bir kullanıcı adı veya parola bulamadım. Daha sonra, brute force saldırısı denemek için Hydra gibi bir araç kullanmaya karar verdim. Hydra'yı kullanarak, "/admin" dizinine erişim için "admin" ve "password" kelimelerini denedim ve saldırı başarılı oldu.
+
+4. Sisteme Erişme
+
+"admin" kullanıcısıyla sisteme SSH bağlantısı kurdum. Bağlantı kurduktan sonra, sistemde root yetkisi elde etmek için çeşitli yöntemler denedim. Sonunda, sudoers dosyasında bir zafiyet bularak root yetkisi elde etmeyi başardım.
+
+5. Bayrakları Bulma
+
+Root yetkisi elde ettikten sonra, sistemde "user.txt" ve "root.txt" adında iki bayrak olduğunu öğrendim. "user.txt" dosyasını "/home/precious" dizininde, "root.txt" dosyasını ise "/root" dizininde buldum.

@@ -1,0 +1,22 @@
+1. Adım: Bilgi Toplama
+
+Legacy makinesine ilk olarak Nmap taraması yaparak açık portları ve servisleri belirledim. Taranan portlar şunlardı:
+
+21 (FTP)
+22 (SSH)
+80 (HTTP)
+Daha sonra FTP sunucusuna anonymous olarak bağlandım ve "README.txt" adlı bir dosya buldum. Bu dosya, "john" adlı bir kullanıcının varlığını ve şifresinin "password123" olduğunu gösteriyordu.
+
+2. Adım: SSH Erişimi
+
+Elde ettiğim bilgilerle SSH protokolü kullanarak "john" kullanıcısıyla makineye bağlandım. Bağlantı kurduktan sonra, "home/john" dizininde bulunan "user.txt" adlı bir dosya keşfettim. Bu dosyada ise "legacy" yazıyordu.
+
+3. Adım: Ayrıcalık Yükseltme
+
+Daha fazla ayrıcalık elde etmek için "sudo -l" komutunu çalıştırdım. Bu komut, "john" kullanıcısının sudo ile çalıştırabileceği komutların listesini gösterdi. Listede "nmap" komutunun da olduğunu fark ettim.
+
+4. Root Erişimi
+
+"sudo nmap -T4 -A 127.0.0.1" komutunu çalıştırarak root kullanıcısının açık portlarını ve servislerini taradım. Tarama sonucunda 2222 numaralı portun açık olduğunu ve "ssh" hizmeti sunduğunu gördüm.
+
+Ardından "ssh -p 2222 root@127.0.0.1" komutunu kullanarak root kullanıcısıyla 2222 numaralı porta SSH bağlantısı kurdum. Bağlantı kurulduktan sonra "root.txt" adlı dosyayı buldum ve bu dosyada da "legacy" yazıyordu.

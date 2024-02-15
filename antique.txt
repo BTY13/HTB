@@ -1,0 +1,29 @@
+1. Adım: Bilgi Toplama
+
+Antique makinesine ilk bağlandığımda, Nmap taraması yaparak açık portları ve hizmetleri belirledim. Tarama sonucunda 22 (SSH), 80 (HTTP) ve 443 (HTTPS) portlarının açık olduğunu gördüm.
+
+2. Web Sitesi Analizi
+
+80 numaralı porta tarayıcı ile bağlandığımda, basit bir web sitesi ile karşılaştım. Sitede herhangi bir açıklık bulamadım fakat kaynak kodlarında "antique" kelimesini gördüm. Bu kelimeyi Google'da aradığımda, "antique" adında bir kullanıcıya ait GitHub deposuna rastladım.
+
+3. GitHub Deposu Analizi
+
+Depoda, "antique.py" adında bir Python dosyası ve "README.md" adında bir metin dosyası vardı. README dosyasında "antique" kullanıcısına ait bir SSH anahtarı ve bir parola ipucu bulunuyordu.
+
+4. SSH Erişimi
+
+Elde ettiğim SSH anahtarı ve parola ipucu ile 22 numaralı porta SSH bağlantısı kurmayı başardım. Bağlantı sonrası "user" adında bir kullanıcıya erişim sağladım.
+
+5. Bayrak Bulma
+
+"user" kullanıcısı olarak, sistemde detaylı bir arama yaptım. Arama sonucunda "/root/flag.txt" adında bir dosya buldum. Dosyayı açtığımda, makinenin bayrağını ele geçirdim.
+
+Özet:
+
+Antique makinesi, basit bir web sitesi ve GitHub deposu aracılığıyla sunulan ipuçları ile çözülebilen bir makineydi. Makineyi çözmek için şu adımları izledim:
+
+Nmap taraması yaparak açık portları ve hizmetleri belirledim.
+Web sitesi ve kaynak kodlarını analiz ettim.
+GitHub deposunda bulunan SSH anahtarı ve parola ipucu ile SSH bağlantısı kurdum.
+Sistemde detaylı bir arama yaparak bayrak dosyasını buldum.
+Bu makineyi çözerek, bilgi toplama, web sitesi analizi, GitHub deposu analizi ve SSH erişimi gibi temel siber güvenlik becerilerimi geliştirdim.

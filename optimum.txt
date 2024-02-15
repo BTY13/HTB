@@ -1,0 +1,18 @@
+1. Keşif:
+
+Nmap taramasıyla açık portları ve servisleri belirledim.
+HttpFileServer 2.3 web sunucusunun açık olduğunu ve CVE-2017-8569 uzaktan kod yürütme zafiyetinden etkilendiğini keşfettim.
+2. Sömürme:
+
+Metasploit modülünü kullanarak veya manuel olarak zafiyeti sömürdüm.
+Bu sayede, hedefe bir meterpreter kabuğu aldım.
+3. Hakimiyet:
+
+Meterpreter kabuğunu kullanarak, sistemde daha fazla bilgi topladım.
+Windows 8.1'de MS16-098 yamasının yüklü olmadığını ve bu nedenle CVE-2016-3309 taşma zafiyetine karşı savunmasız olduğunu keşfettim.
+Bu zafiyeti sömürmek için bir PoC kodu kullandım.
+Bu sayede, SYSTEM ayrıcalıklarına sahip bir kabuk elde ettim.
+4. Bayraklar:
+
+Bayrakları bulmak için sistemdeki dosyaları ve kayıt defterini aradım.
+Her iki bayrağı da başarıyla buldum ve görev tamamlandı.

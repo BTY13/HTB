@@ -1,0 +1,20 @@
+1. Adım: Bilgi Toplama
+
+Pilgrimage makinesine ilk olarak Nmap taraması gerçekleştirdim. Tarama sonucunda aşağıdaki açık portları ve servisleri keşfettim:
+
+22/TCP - SSH
+80/TCP - HTTP
+443/TCP - HTTPS
+Daha sonra web tarayıcım üzerinden 80. porta eriştim ve basit bir web sitesi ile karşılaştım. Web sitesinde herhangi bir açıklık bulamadım, ancak kaynak kodlarında "pilgrimage" kelimesini gördüm. Bu kelimeyi Google'da aratarak, makinenin bir CTF challenge'ı ile bağlantılı olduğunu keşfettim.
+
+2. Adım: Zafiyet Keşfi
+
+CTF challenge'ı, bir metin dosyasında saklanan bir şifreyi bulmayı içeriyordu. Web sitesinin kaynak kodlarında bu dosyayı bulmak için tekrar bir inceleme yaptım. Sonunda, ".htaccess" adında bir dosya keşfettim. Bu dosyayı indirdim ve içeriğini inceledim. Dosya içerisinde, şifrelenmiş bir metin dizesi buldum.
+
+3. Adım: Şifreyi Çözme
+
+Şifreyi çözmek için John the Ripper isimli bir parola kırma aracını kullandım. Araç, şifreyi kısa sürede kırmayı başardı.
+
+4. Adım: SSH Erişimi
+
+Kırılmış şifreyi kullanarak SSH protokolü üzerinden makineye erişim sağladım. Makineye eriştikten sonra, "user" isimli kullanıcının home dizinine gittim. Bu dizinde, "flag.txt" adında bir dosya buldum. Bu dosyayı açarak, CTF challenge'ı için gerekli olan bayrağı (flag) elde ettim.

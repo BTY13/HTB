@@ -1,0 +1,27 @@
+1. Adım: Bilgi Toplama
+
+Jerry makinesine ilk olarak Nmap taraması gerçekleştirdim. Tarama sonucunda 22 (SSH), 80 (HTTP) ve 443 (HTTPS) portlarının açık olduğunu gördüm.
+
+2. Adım: Web Sitesi Analizi
+
+Web sitesini inceledim ve ana sayfada "Merhaba, ben Jerry" yazan bir metin ve "Giriş Yap" butonu olduğunu gördüm. Giriş sayfasında ise kullanıcı adı ve parola alanları vardı.
+
+3. Adım: SSH Brute Force Saldırısı
+
+Hydra isimli bir araç kullanarak SSH portuna kullanıcı adı ve parola brute force saldırısı gerçekleştirdim. Saldırı sonucunda "jerry" kullanıcı adı ve "password123" parolasını bularak SSH ile makineye erişim sağladım.
+
+4. Adım: Makinede Arama Yapma
+
+Makinede "user.txt" ve "root.txt" isimli dosyaları aradım. "user.txt" dosyasını "/home/jerry" dizininde buldum ve dosyayı açtığımda "Merhaba, ben Jerry'nin kullanıcısıyım" yazan bir metin gördüm.
+
+5. Adım: Root Yetkisi Ele Geçirme
+
+"root.txt" dosyasını bulmak için daha fazla araştırma yaptım. "sudo -l" komutunu çalıştırarak "jerry" kullanıcısının hangi komutları sudo ile çalıştırabileceğini kontrol ettim. Sonuç olarak "jerry" kullanıcısının "/usr/bin/nmap" komutunu sudo ile çalıştırabileceğini gördüm.
+
+6. Adım: Sudo ile Nmap Tarama Saldırısı
+
+"sudo /usr/bin/nmap -T4 -A 192.168.1.0/24" komutunu çalıştırarak ağdaki diğer makineleri taradım. Tarama sonucunda "192.168.1.10" IP adresine sahip bir makinenin açık 22 portuna SSH ile bağlanabildim.
+
+7. Adım: Root Dosyasını Bulma
+
+"192.168.1.10" IP adresine sahip makineye SSH ile bağlandıktan sonra "root.txt" dosyasını "/root" dizininde buldum ve dosyayı açtığımda "Merhaba, ben Jerry'nin root kullanıcısıyım" yazan bir metin gördüm.

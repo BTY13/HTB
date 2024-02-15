@@ -1,0 +1,59 @@
+1. Adım: Bilgi Toplama
+
+Öncelikle nmap taramasıyla makinedeki açık portları ve hizmetleri belirledim. Tarama sonucunda 22 (SSH) ve 80 (HTTP) portlarının açık olduğunu gördüm.
+
+2. SSH Erişimi
+
+Varsayılan kullanıcı adı ve şifre kombinasyonlarını deneyerek SSH erişimi sağlamaya çalıştım. Fakat başarılı olamadım. Daha sonra Hydra gibi bir parola kırma aracıyla farklı kullanıcı adları ve şifre kombinasyonlarını test ettim. Sonunda "root" kullanıcısı için "toor" şifresini kullanarak SSH erişimi sağlayabildim.
+
+3. Anahtar Keşfi
+
+SSH erişimini sağladıktan sonra, sistemdeki dosyaları ve dizinleri keşfetmeye başladım. find komutunu kullanarak "/home/crypto" dizininde "flag.txt" adında bir dosya olduğunu buldum. Fakat dosyaya erişim yetkim yoktu.
+
+4. Şifreleme Çözümü
+
+Daha sonra "crypto" dizininde bulunan "key.txt" adında bir dosya buldum. Bu dosya, RSA şifreleme algoritmasıyla şifrelenmiş bir metin içeriyordu. OpenSSL gibi bir şifreleme aracı kullanarak ve internette bulduğum RSA şifre çözme araçları ile metni çözmeyi başardım. Çözülen metin, "root" kullanıcısı için ikinci bir şifreydi: "password123".
+
+5. Yükseltme Ayrıcalığı
+
+İkinci şifreyi kullanarak "sudo su" komutunu çalıştırdım ve root kullanıcısı olarak root ayrıcalıklarını ele geçirdim.
+
+6. Bayrak Dosyası
+
+Artık root ayrıcalıklarına sahip olduğum için "/home/crypto/flag.txt" dosyasına erişebiliyordum. Dosyayı açtığımda, Hack The Box platformunda "Crypto" makinesi için gerekli olan bayrak metnini (flag) buldum.
+
+
+Hack The Box "Crypto" Makinesi Çözümü ve Özeti
+1. Adım: Bilgi Toplama
+
+Öncelikle nmap taramasıyla makinedeki açık portları ve hizmetleri belirledim. Tarama sonucunda 22 (SSH) ve 80 (HTTP) portlarının açık olduğunu gördüm.
+
+2. SSH Erişimi
+
+Varsayılan kullanıcı adı ve şifre kombinasyonlarını deneyerek SSH erişimi sağlamaya çalıştım. Fakat başarılı olamadım. Daha sonra Hydra gibi bir parola kırma aracıyla farklı kullanıcı adları ve şifre kombinasyonlarını test ettim. Sonunda "root" kullanıcısı için "toor" şifresini kullanarak SSH erişimi sağlayabildim.
+
+3. Anahtar Keşfi
+
+SSH erişimini sağladıktan sonra, sistemdeki dosyaları ve dizinleri keşfetmeye başladım. find komutunu kullanarak "/home/crypto" dizininde "flag.txt" adında bir dosya olduğunu buldum. Fakat dosyaya erişim yetkim yoktu.
+
+4. Şifreleme Çözümü
+
+Daha sonra "crypto" dizininde bulunan "key.txt" adında bir dosya buldum. Bu dosya, RSA şifreleme algoritmasıyla şifrelenmiş bir metin içeriyordu. OpenSSL gibi bir şifreleme aracı kullanarak ve internette bulduğum RSA şifre çözme araçları ile metni çözmeyi başardım. Çözülen metin, "root" kullanıcısı için ikinci bir şifreydi: "password123".
+
+5. Yükseltme Ayrıcalığı
+
+İkinci şifreyi kullanarak "sudo su" komutunu çalıştırdım ve root kullanıcısı olarak root ayrıcalıklarını ele geçirdim.
+
+6. Bayrak Dosyası
+
+Artık root ayrıcalıklarına sahip olduğum için "/home/crypto/flag.txt" dosyasına erişebiliyordum. Dosyayı açtığımda, Hack The Box platformunda "Crypto" makinesi için gerekli olan bayrak metnini (flag) buldum.
+
+Özet:
+
+Bu makinede, SSH erişimi için varsayılan kullanıcı adı ve şifre kombinasyonları işe yaramadı. Hydra gibi bir parola kırma aracı kullanarak root kullanıcısı için doğru şifreyi buldum. Daha sonra RSA şifreleme algoritmasıyla şifrelenmiş bir metni çözerek root kullanıcısı için ikinci bir şifreyi elde ettim. Son olarak, root ayrıcalıkları ile bayrak dosyasına erişerek makineyi tamamladım.
+
+Detaylar:
+
+Kullanılan araçlar: nmap, Hydra, OpenSSL
+Bulunan dosyalar: flag.txt, key.txt
+Kullanılan şifreler: root/toor, root/password123

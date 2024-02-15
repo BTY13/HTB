@@ -1,0 +1,21 @@
+1. Adım: Bilgi Toplama
+
+Knife makinesine ilk bağlandığımda, Nmap taraması gerçekleştirdim. Bu tarama ile aşağıdaki açık portları keşfettim:
+
+22 (SSH)
+80 (HTTP)
+443 (HTTPS)
+Daha sonra, web sunucusunda herhangi bir zafiyet olup olmadığını görmek için Nikto tarayıcısını kullandım. Nikto, bir dizi yaygın web zafiyeti için sunucuyu tarar ve potansiyel güvenlik açıkları hakkında bilgi verir. Nikto taraması sonucunda aşağıdaki zafiyetleri keşfettim:
+
+Potansiyel SQL enjeksiyonu zafiyeti: /index.php?id=1 gibi bir URL'ye rastgele bir sayı ekleyerek ve SQL sorguları enjekte ederek veritabanına erişmeye çalışılabilir.
+2. Adım: Sömürme
+
+SQL enjeksiyonu zafiyetini sömürmek için, id parametresine bir SQL sorgusu ekledim. Bu sorgu, veritabanındaki tüm kullanıcı adlarını ve şifrelerini almayı başardı. Elde ettiğim bilgiler arasında admin kullanıcısının da bilgileri vardı.
+
+3. Adım: Erişim Sağlama
+
+Edindiğim admin kullanıcısının kullanıcı adı ve şifresini kullanarak SSH yoluyla makineye erişim sağladım.
+
+4. Adım: Bayrak Bulma
+
+Makineye eriştikten sonra, /root dizininde user.txt ve /root/root.txt adında iki bayrak dosyası buldum. Bu dosyaları açarak bayrakları kopyaladım ve görev tamamlandı.
